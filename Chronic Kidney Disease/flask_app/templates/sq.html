@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<title>Flask App</title>
+		<style type="text/css">
+			* {
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Square Calculator</h1>
+		<form method="post" id="form">
+			<label>Enter Number : </label>
+			<input type="text" id="num" name="number" autofocus autocomplete="off">
+			<button id="predict"><span>Submit</span></button>
+		</form>
+		<p id="print">Hwy</p>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script>
+            $("button#predict").click(function(e){
+                var number = $('#num').val();
+                e.preventDefault();
+                data = {'number': number},
+                $.ajax({
+                    url : "/square",
+                    data : {'number': number},
+                    type : "POST",
+                    success: function(number) {
+                        document.getElementById('print').innerHTML = number
+                    },
+                    error : function(){
+                        console.log("error");
+                    }
+                });
+            });
+		</script>
+	</body>
+</html>

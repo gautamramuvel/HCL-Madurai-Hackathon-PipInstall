@@ -1,0 +1,148 @@
+ {% extends "bootstrap/base.html" %} {% block content %}
+
+<div class="container">
+    <div class="jumbotron" style="background-color:#1daeff !important;">
+        <h2 style="color:#fff;">Chronic Kidney Disease Classifier Using Machine Learning</h2>
+    </div>
+</div>
+
+
+<div class="panel-group">
+    <div class="panel panel-primary">
+        <div class="panel-heading" style="background-color:#1563ff ">Classifier Model</div>
+        <div class="panel-body">
+
+            <!-- Main Input For Receiving Query to our ML -->
+            <form action="{{ url_for('predict')}}" method="POST">
+                <label for="Age">Age</label> <input type="text" name="age" placeholder="18"><br />
+
+                <label for="Blood pressure">Blood Pressure</label><input type="text" name="bp" placeholder="120 mm/Hg"><br />
+
+                <label for="Specific Gravity">Specific Gravity</label>
+                <select class="selection-2" id="sg" name="sg">
+							<option value="1.005">1.005</option>
+							<option value="1.010">1.010</option>
+                            <option value="1.015">1.015</option>
+							<option value="1.020">1.020</option>
+                            <option value="1.025">1.025</option>
+						</select><br/>
+
+                <label for="Albumin">Albumin</label>
+                <select class="selection-2" id="al" name="al">
+							<option value="0">0</option>
+							<option value="1">1</option>
+                            <option value="2">2</option>
+							<option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+						</select><br/>
+
+                <label for="Sugar">Sugar</label>
+                <select class="selection-2" id="su" name="su">
+							<option value="0">0</option>
+							<option value="1">1</option>
+                            <option value="2">2</option>
+							<option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+						</select><br/>
+
+                <label for="Red Blood Cell">Red Blood Cell</label>
+                <select class="selection-2" id="rbc" name="rbc">
+							<option value="Normal">Normal</option>
+							<option value="Abnormal">Abnormal</option>
+            </select><br/>
+
+                <label for="Pus Cell">Pus Cell</label>
+                <select class="selection-2" id="pc" name="pc">
+							<option value="Normal">Normal</option>
+							<option value="Abnormal">Abnormal</option>
+            </select><br/>
+
+                <label for="Pus Cell Clumps">Pus Cell Clumps</label>
+                <select class="selection-2" id="pcc" name="pcc">
+							<option value="Present">Present</option>
+							<option value="Not Present">Not Present</option>
+            </select><br/>
+
+                <label for="Bacteria">Bacteria</label>
+                <select class="selection-2" id="ba" name="ba">
+							<option value="Present">Present</option>
+							<option value="Not Present">Not Present</option>
+            </select><br/>
+
+                <label for="Blood Glucose Random">Blood Glucose Random</label><input type="text" name="bgr" placeholder="120 mgs/dl"><br/>
+
+
+                <label for="Blood Urea">Blood Urea</label><input type="text" name="bu" placeholder="7 mgs/dl"><br/>
+
+                <label for="Serum Cretinine">Serum Cretinine</label><input type="text" name="sc" placeholder="0.6 mgs/dl"><br/>
+
+                <label for="Sodium">Sodium</label><input type="text" name="sod" placeholder="135 mEq/L"><br/>
+
+                <label for="Potassium">Potassium</label><input type="text" name="pot" placeholder="3.5 mEq/L"><br/>
+
+                <label for="Haemoglobin">Haemoglobin</label><input type="text" name="hemo" placeholder="13.5 gms"><br/>
+
+                <label for="Packed Cell Volume">Packed Cell Volume</label><input type="text" name="pcv" placeholder="50"><br/>
+
+                <label for="White Blood Cell Count">White Blood Cell Count</label><input type="text" name="wbcc" placeholder="4000 cells/cumm"><br/>
+
+                <label for="Red Blood Cell Count">Red Blood Cell Count</label><input type="text" name="rbcc" placeholder="4.2 millions/cmm"><br/>
+
+                <label for="Hypertension">Hypertension</label>
+                <select class="selection-2" id="htn" name="htn">
+							<option value="Yes">Yes</option>
+							<option value="No">No</option>
+            </select><br/>
+
+                <label for="Diabetes Mellitus">Diabetes Mellitus</label>
+                <select class="selection-2" id="dm" name="dm">
+							<option value="Yes">Yes</option>
+							<option value="No">No</option>
+            </select><br/>
+
+                <label for="Coronary Artery Disease">Coronary Artery Disease</label>
+                <select class="selection-2" id="cad" name="cad">
+							<option value="Yes">Yes</option>
+							<option value="No">No</option>
+            </select><br/>
+
+                <label for="Appetite">Appetite</label>
+                <select class="selection-2" id="appet" name="appet">
+							<option value="Good">Good</option>
+							<option value="Poor">Poor</option>
+            </select><br/>
+
+
+                <label for="Pedal Edema">Pedal Edema</label>
+                <select class="selection-2" id="pe" name="pe">
+							<option value="Yes">Yes</option>
+							<option value="No">No</option>
+            </select><br/>
+
+
+                <label for="Anemia">Anemia</label>
+                <select class="selection-2" id="ane" name="ane">
+							<option value="Yes">Yes</option>
+							<option value="No">No</option>
+            </select><br/>
+
+
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </form>
+
+
+
+            <!-- Main Input For Receiving Query to our ML -->
+
+
+        </div>
+    </div>
+
+
+
+
+    {% endblock %} {% block styles %} {{super()}}
+    <!-- Allows Javascripts and other styles to be inclusive in bootstrap -->
+    <link rel="stylesheet" href="{{url_for('.static', filename='css/styles.css')}}"> {% endblock %}

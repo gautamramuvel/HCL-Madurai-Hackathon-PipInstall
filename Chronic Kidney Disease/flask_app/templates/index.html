@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cars Price Predictor</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{ url_for('static',filename='images/icons/car_icon.png') }}" />
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}" >
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animate/animate.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/css-hamburgers/hamburgers.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animsition/css/animsition.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/daterangepicker/daterangepicker.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/util.css') }}">
+	<link rel= "stylesheet" type= "text/css" href="{{ url_for('static',filename='css/main.css') }}">
+<!--===============================================================================================-->
+
+</head>
+<body>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form id="form" class="contact100-form validate-form" method="post" action="/api">
+				<span class="contact100-form-title">
+                    <b><h1>Kidney Disease Prediction</h1></b>
+				</span>
+            </form>
+
+				<div class="wrap-input100 validate-input" data-validate="Age is required">
+					<span class="label-input100">Year of model</span>
+					<input class="input100" type="text" id="age" name="age" placeholder="18">
+					<span class="focus-input100"></span>
+				</div>
+<!--
+				<div class="wrap-input100 validate-input" data-validate="BP in mm/hg is required">
+					<span class="label-input100">Blood Pressure</span>
+					<input class="input100" type="text" id="bp" name="bp" placeholder="120">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 input100-select">
+					<span class="label-input100">Specific gravity</span>
+					<div>
+						<select class="selection-2" id="sg" name="sg">
+							<option value="1.005">1.005</option>
+							<option value="1.010">1.010</option>
+							<option value="1.015">1.015</option>
+							<option value="1.020">1.020</option>
+							<option value="1.025">1.025</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+                  <div class="wrap-input100 input100-select">
+					<span class="label-input100">Albumin</span>
+					<div>
+						<select class="selection-2" id="al" name="al">
+							<option value="0">0</option>
+							<option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+                 <div class="wrap-input100 input100-select">
+					<span class="label-input100">Sugar</span>
+					<div>
+						<select class="selection-2" id="su" name="su">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+                	<div class="wrap-input100 input100-select">
+					<span class="label-input100">Red Blood Cells</span>
+					<div>
+						<select class="selection-2" id="rbc" name="rbc">
+							<option value="Normal">Normal </option>
+							<option value="Abnormal">Abnormal </option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 input100-select">
+					<span class="label-input100">Pus Cell</span>
+					<div>
+						<select class="selection-2" id="pc" name="pc">
+							<option value="Normal">Normal </option>
+							<option value="Abnormal">Abnormal </option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 input100-select">
+					<span class="label-input100">Pus Cell Clumps</span>
+					<div>
+						<select class="selection-2" id="pcc" name="pcc">
+							<option value="Present">Present </option>
+							<option value="Not present">Not present </option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+                 <div class="wrap-input100 input100-select">
+					<span class="label-input100">Bacteria</span>
+					<div>
+						<select class="selection-2" id="ba" name="ba">
+							<option value="Present">Present </option>
+							<option value="Not present">Not present </option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 validate-input" data-validate="BP in mm/hg is required">
+					<span class="label-input100">Blood Glucose Random</span>
+					<input class="input100" type="text" id="bgr" name="bgr" placeholder="120">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 validate-input" data-validate="BP in mm/hg is required">
+					<span class="label-input100">Blood Urea</span>
+					<input class="input100" type="text" id="bu" name="bu" placeholder="7">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 validate-input" data-validate="BP in mm/hg is required">
+					<span class="label-input100">Serum Cretatinine</span>
+					<input class="input100" type="text" id="sc" name="sc" placeholder="0.6">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 validate-input" data-validate="BP in mm/hg is required">
+					<span class="label-input100">Sodium</span>
+					<input class="input100" type="text" id="sod" name="sod" placeholder="135">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 validate-input" data-validate="BP in mm/hg is required">
+					<span class="label-input100">Potassiumm</span>
+					<input class="input100" type="text" id="pot" name="pot" placeholder="3.5">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 validate-input" data-validate="BP in mm/hg is required">
+					<span class="label-input100">Haemoglobin</span>
+					<input class="input100" type="text" id="hemo" name="hemo" placeholder="13.5">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 validate-input" data-validate="BP in mm/hg is required">
+					<span class="label-input100">Pack Cell Volume</span>
+					<input class="input100" type="text" id="pcv" name="pcv" placeholder="50">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 validate-input" data-validate="BP in mm/hg is required">
+					<span class="label-input100">White Blood Cell count</span>
+					<input class="input100" type="text" id="wc" name="wc" placeholder="4000">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 validate-input" data-validate="BP in mm/hg is required">
+					<span class="label-input100">Red Blood Cell count</span>
+					<input class="input100" type="text" id="rc" name="rc" placeholder="4.2">
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="wrap-input100 input100-select">
+					<span class="label-input100">Hypertension</span>
+					<div>
+						<select class="selection-2" id="htn" name="htn">
+							<option value="Yes">Yes </option>
+							<option value="No">No </option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+
+                <div class="wrap-input100 input100-select">
+					<span class="label-input100">Diabetics Mellitus</span>
+					<div>
+						<select class="selection-2" id="dm" name="dm">
+							<option value="Yes">Yes </option>
+							<option value="No">No </option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 input100-select">
+					<span class="label-input100">Coronary Artery Disease</span>
+					<div>
+						<select class="selection-2" id="cad" name="cad">
+							<option value="Yes">Yes </option>
+							<option value="No">No </option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 input100-select">
+					<span class="label-input100">Appetite</span>
+					<div>
+						<select class="selection-2" id="appetite" name="appetite">
+							<option value="Good">Good </option>
+
+							<option value="Poor">Poor </option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 input100-select">
+					<span class="label-input100">Pedal Edema</span>
+					<div>
+						<select class="selection-2" id="pe" name="pe">
+							<option value="Yes">Yes </option>
+							<option value="No">No </option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 input100-select">
+					<span class="label-input100">Anemia</span>
+					<div>
+						<select class="selection-2" id="ane" name="ane">
+							<option value="Yes">Yes </option>
+							<option value="No">No </option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+            -->
+                <div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button id="predict" class="contact100-form-btn">
+							<span>Predict<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/animsition/js/animsition.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/select2/select2.min.js') }}"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/daterangepicker/moment.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/daterangepicker/daterangepicker.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/countdowntime/countdowntime.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+	<!-- include sweetAlert plugin -->
+	<script src="{{ url_for('static',filename='js/sweetalert2.all.js') }}"></script>
+	<script type="text/javascript">
+		$(function () {
+	        $("button#predict").click(function(e){
+	        	e.preventDefault();
+	        	$.ajax({
+	        		type : "POST",
+	        		url : window.location.href + 'api',
+	        		data : $('form').serialize(),
+	        		success : function(result){
+	        			console.log(result)
+	        		},
+	        		error : function(){
+	        			console.log("error")
+	        			swal('hello', '','success')
+	        		}
+	        	});
+	        });
+
+		});
+	</script>
+</body>
+</html>
